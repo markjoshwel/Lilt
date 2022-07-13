@@ -1,0 +1,228 @@
+[gd_scene load_steps=13 format=3 uid="uid://q7cu7i1lhnsk"]
+
+[ext_resource type="Script" path="res://scripts/settingsmenu.gd" id="1_as8va"]
+[ext_resource type="FontData" uid="uid://ddi2jx85hqr4e" path="res://assets/thirdparty/IBM-Plex-Sans/IBMPlexSans-Medium.otf" id="2_el4lm"]
+[ext_resource type="FontData" uid="uid://cgt7wmigp80fu" path="res://assets/thirdparty/Trispace-RC1/Trispace-Regular.otf" id="3_k5qx8"]
+[ext_resource type="FontData" uid="uid://blx50dfqtv47d" path="res://assets/thirdparty/IBM-Plex-Sans/IBMPlexSans-Regular.otf" id="5_12o31"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slean"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Font" id="Font_ybsiu"]
+data/0 = ExtResource("2_el4lm")
+
+[sub_resource type="Font" id="Font_0xb3m"]
+data/0 = ExtResource("5_12o31")
+
+[sub_resource type="Font" id="Font_5a64o"]
+data/0 = ExtResource("3_k5qx8")
+
+[sub_resource type="Font" id="Font_qv8q2"]
+data/0 = ExtResource("5_12o31")
+
+[sub_resource type="Font" id="Font_0qlla"]
+data/0 = ExtResource("2_el4lm")
+
+[sub_resource type="Font" id="Font_0ln7e"]
+data/0 = ExtResource("5_12o31")
+
+[sub_resource type="Font" id="Font_forvk"]
+data/0 = ExtResource("5_12o31")
+
+[node name="SettingsMenu" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -542.0
+offset_top = -505.0
+offset_right = 542.0
+offset_bottom = 505.0
+script = ExtResource("1_as8va")
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_slean")
+metadata/_edit_layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -387.5
+offset_top = -456.0
+offset_right = 387.5
+offset_bottom = 456.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 155)
+offset_right = 775.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_ybsiu")
+theme_override_font_sizes/font_size = 96
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_layout_mode = 1
+
+[node name="TopPadding" type="Control" parent="Panel/VBoxContainer"]
+offset_top = 159.0
+offset_right = 775.0
+offset_bottom = 215.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_direction = 2
+offset_top = 219.0
+offset_right = 775.0
+offset_bottom = 569.0
+columns = 2
+
+[node name="WidthLabel" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+offset_right = 471.0
+offset_bottom = 82.0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_0xb3m")
+theme_override_font_sizes/font_size = 60
+text = "Window Width"
+
+[node name="WidthValue" type="LineEdit" parent="Panel/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 475.0
+offset_right = 775.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_5a64o")
+theme_override_font_sizes/font_size = 60
+text = "1440"
+alignment = 1
+
+[node name="HeightLabel" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+offset_top = 86.0
+offset_right = 471.0
+offset_bottom = 168.0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_0xb3m")
+theme_override_font_sizes/font_size = 60
+text = "Window Height"
+
+[node name="HeightValue" type="LineEdit" parent="Panel/VBoxContainer/GridContainer"]
+offset_left = 475.0
+offset_top = 86.0
+offset_right = 775.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_5a64o")
+theme_override_font_sizes/font_size = 60
+text = "2560"
+alignment = 1
+
+[node name="BorderlessLabel" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+offset_top = 174.0
+offset_right = 471.0
+offset_bottom = 256.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_qv8q2")
+theme_override_font_sizes/font_size = 60
+text = "Borderless"
+
+[node name="BorderlessToggle" type="Button" parent="Panel/VBoxContainer/GridContainer"]
+offset_left = 475.0
+offset_top = 172.0
+offset_right = 775.0
+offset_bottom = 259.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_0qlla")
+theme_override_font_sizes/font_size = 60
+text = "Yes"
+
+[node name="FullscreenLabel" type="Label" parent="Panel/VBoxContainer/GridContainer"]
+offset_top = 265.0
+offset_right = 471.0
+offset_bottom = 347.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_qv8q2")
+theme_override_font_sizes/font_size = 60
+text = "Fullscreen"
+
+[node name="FullscreenToggle" type="Button" parent="Panel/VBoxContainer/GridContainer"]
+offset_left = 475.0
+offset_top = 263.0
+offset_right = 775.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_0qlla")
+theme_override_font_sizes/font_size = 60
+text = "Yes"
+
+[node name="AudioLabel" type="Label" parent="Panel/VBoxContainer"]
+offset_top = 573.0
+offset_right = 775.0
+offset_bottom = 655.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("Font_0ln7e")
+theme_override_font_sizes/font_size = 60
+text = "Audio (100%)"
+
+[node name="AudioSlider" type="HSlider" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+offset_top = 659.0
+offset_right = 775.0
+offset_bottom = 689.0
+value = 100.0
+
+[node name="Padding" type="Control" parent="Panel/VBoxContainer"]
+offset_top = 693.0
+offset_right = 775.0
+offset_bottom = 749.0
+size_flags_vertical = 3
+
+[node name="ExitButton" type="Button" parent="Panel/VBoxContainer"]
+offset_top = 753.0
+offset_right = 775.0
+offset_bottom = 851.0
+theme_override_fonts/font = SubResource("Font_forvk")
+theme_override_font_sizes/font_size = 69
+text = "Back to Menu"
+
+[node name="BottomPadding" type="Control" parent="Panel/VBoxContainer"]
+offset_top = 855.0
+offset_right = 775.0
+offset_bottom = 912.0
+size_flags_vertical = 3
+
+[connection signal="text_submitted" from="Panel/VBoxContainer/GridContainer/WidthValue" to="." method="_on_width_value_text_submitted"]
+[connection signal="text_submitted" from="Panel/VBoxContainer/GridContainer/HeightValue" to="." method="_on_height_value_text_submitted"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/BorderlessToggle" to="." method="_on_borderless_toggle_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/GridContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_pressed"]
+[connection signal="drag_ended" from="Panel/VBoxContainer/AudioSlider" to="." method="_on_audio_slider_drag_ended"]
+[connection signal="value_changed" from="Panel/VBoxContainer/AudioSlider" to="." method="_on_audio_slider_value_changed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

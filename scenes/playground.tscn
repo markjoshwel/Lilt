@@ -1,0 +1,146 @@
+[gd_scene load_steps=13 format=3 uid="uid://be80tlf82ckr1"]
+
+[ext_resource type="Script" path="res://scripts/playground.gd" id="1_a2uf2"]
+[ext_resource type="Texture2D" uid="uid://bixjqv4341osw" path="res://assets/rotary/rotary.png" id="1_bgag0"]
+[ext_resource type="Script" path="res://scripts/healthdisplay.gd" id="2_aa8mr"]
+[ext_resource type="FontData" uid="uid://cgt7wmigp80fu" path="res://assets/thirdparty/Trispace-RC1/Trispace-Regular.otf" id="2_rle3v"]
+[ext_resource type="FontData" uid="uid://b405krjj78rn1" path="res://assets/thirdparty/Trispace-RC1/Trispace-Light.otf" id="3_rdkek"]
+[ext_resource type="FontData" uid="uid://4yuyfg5slpbn" path="res://assets/thirdparty/Trispace-RC1/Trispace-SemiBold.otf" id="4_hx0px"]
+[ext_resource type="Script" path="res://scripts/elapseddisplay.gd" id="7_0gv2m"]
+[ext_resource type="Script" path="res://scripts/durationdisplay.gd" id="7_5ntcl"]
+
+[sub_resource type="Font" id="Font_r00gp"]
+data/0 = ExtResource("2_rle3v")
+
+[sub_resource type="Font" id="Font_7o1rf"]
+data/0 = ExtResource("3_rdkek")
+
+[sub_resource type="Font" id="Font_a1pck"]
+data/0 = ExtResource("4_hx0px")
+
+[sub_resource type="Font" id="Font_hs88f"]
+data/0 = ExtResource("2_rle3v")
+
+[node name="PlaygroundUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_a2uf2")
+
+[node name="TopInfoDisplay" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+offset_bottom = 300.0
+grow_horizontal = 2
+size_flags_vertical = 0
+alignment = 1
+metadata/_edit_layout_mode = 1
+
+[node name="HealthDisplay" type="Control" parent="TopInfoDisplay"]
+offset_top = 60.0
+offset_right = 1440.0
+offset_bottom = 60.0
+size_flags_vertical = 0
+script = ExtResource("2_aa8mr")
+
+[node name="HealthBar" type="Control" parent="TopInfoDisplay/HealthDisplay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="TopInfoDisplay/HealthDisplay/HealthBar"]
+anchor_right = 1.0
+offset_top = -60.0
+offset_bottom = -40.0
+grow_horizontal = 2
+metadata/_edit_layout_mode = 1
+
+[node name="ScoreCounter" type="Label" parent="TopInfoDisplay"]
+offset_top = 64.0
+offset_right = 1440.0
+offset_bottom = 176.0
+theme_override_fonts/font = SubResource("Font_r00gp")
+theme_override_font_sizes/font_size = 96
+text = "1000000"
+horizontal_alignment = 1
+
+[node name="AccuracyCounter" type="Label" parent="TopInfoDisplay"]
+offset_top = 180.0
+offset_right = 1440.0
+offset_bottom = 240.0
+theme_override_fonts/font = SubResource("Font_7o1rf")
+theme_override_font_sizes/font_size = 50
+text = "100.00%"
+horizontal_alignment = 1
+
+[node name="HitDisplay" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = 616.0
+offset_right = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("Font_a1pck")
+theme_override_font_sizes/font_size = 70
+text = "MISS"
+metadata/_edit_layout_mode = 1
+
+[node name="Vinyls" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_right = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+
+[node name="SwingCircles" type="Node2D" parent="Vinyls"]
+position = Vector2(0, -300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vinyls/SwingCircles"]
+texture = ExtResource("1_bgag0")
+centered = false
+
+[node name="BottomInfoDisplay" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
+
+[node name="ElapsedDisplay" type="Label" parent="BottomInfoDisplay"]
+offset_right = 1440.0
+offset_bottom = 60.0
+size_flags_vertical = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource("Font_hs88f")
+theme_override_font_sizes/font_size = 50
+text = "100%"
+horizontal_alignment = 1
+script = ExtResource("7_0gv2m")
+
+[node name="DurationDisplay" type="Control" parent="BottomInfoDisplay"]
+offset_top = 120.0
+offset_right = 1440.0
+offset_bottom = 120.0
+size_flags_vertical = 8
+script = ExtResource("7_5ntcl")
+
+[node name="DurationBar" type="Control" parent="BottomInfoDisplay/DurationDisplay"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_vertical = 0
+metadata/_edit_layout_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="BottomInfoDisplay/DurationDisplay/DurationBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
